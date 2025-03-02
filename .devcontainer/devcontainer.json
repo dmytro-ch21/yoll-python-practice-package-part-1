@@ -9,18 +9,12 @@
               "codedrills.startup.showExplorer": false,
               "codedrills.publisher": "Dmytro Chobotar",
               "codedrills.uniqueIdentifier": "dmytrochobotar.codedrills",
-              "codedrills.version": "0.2.0",
-              "python.testing.pytestEnabled": true,
-              "python.testing.unittestEnabled": false,
-              "python.testing.nosetestsEnabled": false,
-              "python.defaultInterpreterPath": "/home/vscode/venv/bin/python",
-              "terminal.integrated.defaultProfile.linux": "bash"
+              "codedrills.version": "0.2.0"
           },
           "extensions": [
-              "dmytrochobotar.codedrills",
-              "ms-python.python"
+              "dmytrochobotar.codedrills"
           ]
       }
   },
-  "onCreateCommand": "sudo apk add --no-cache python3 py3-pip && python3 -m venv ~/venv && . ~/venv/bin/activate && pip install pytest==8.3.4 && echo 'source ~/venv/bin/activate' >> ~/.bashrc && echo 'CodeDrills environment with pytest is ready!'"
+  "onCreateCommand": "apk add --no-cache python3 && echo 'CodeDrills environment is ready!'"
 }
