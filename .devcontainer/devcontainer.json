@@ -2,20 +2,22 @@
   "name": "Python Practice Environment",
   "image": "mcr.microsoft.com/devcontainers/base:debian",
   "customizations": {
-      "vscode": {
-          "settings": {
-              "workbench.startupEditor": "none",
-              "codedrills.startup.activateView": true,
-              "codedrills.startup.showExplorer": false,
-              "python.testing.pytestEnabled": true,
-              "python.testing.unittestEnabled": false,
-              "python.testing.nosetestsEnabled": false
-          },
-          "extensions": [
-              "dmytrochobotar.codedrills",
-              "ms-python.python"
-          ]
-      }
+    "vscode": {
+      "settings": {
+        "workbench.startupEditor": "none",
+        "python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+        "python.venvPath": "/workspace/.venv",
+        "codedrills.startup.activateView": true,
+        "codedrills.startup.showExplorer": false,
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.testing.nosetestsEnabled": false
+      },
+      "extensions": [
+        "dmytrochobotar.codedrills",
+        "ms-python.python"
+      ]
+    }
   },
-  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y python3 python3-pip && pip3 install pytest==8.3.4 && echo 'Python environment ready!'"
+  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y python3 python3-pip python3-venv && python3 -m venv /workspace/.venv && echo 'source /workspace/.venv/bin/activate' >> ~/.bashrc && /workspace/.venv/bin/pip install --upgrade pip && /workspace/.venv/bin/pip install pytest==8.3.4 && echo 'Python environment ready!'"
 }
