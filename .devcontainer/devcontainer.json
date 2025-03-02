@@ -1,20 +1,21 @@
 {
   "name": "Python Practice Environment",
-  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
   "customizations": {
       "vscode": {
           "settings": {
               "workbench.startupEditor": "none",
               "codedrills.startup.activateView": true,
               "codedrills.startup.showExplorer": false,
-              "codedrills.publisher": "Dmytro Chobotar",
-              "codedrills.uniqueIdentifier": "dmytrochobotar.codedrills",
-              "codedrills.version": "0.2.0"
+              "python.testing.pytestEnabled": true,
+              "python.testing.unittestEnabled": false,
+              "python.testing.nosetestsEnabled": false
           },
           "extensions": [
-              "dmytrochobotar.codedrills"
+              "dmytrochobotar.codedrills",
+              "ms-python.python"
           ]
       }
   },
-  "onCreateCommand": "sudo apk add --no-cache python3 && echo 'CodeDrills environment is ready!'"
+  "onCreateCommand": "sudo apt-get update && sudo apt-get install -y python3 python3-pip && pip3 install pytest==8.3.4 && echo 'Python environment ready!'"
 }
