@@ -1,4 +1,4 @@
-# 03_escape_the_maze
+# 02_customized_greetings
 
 ## Description
 In this exercise you will practice customizing the output of the print() function.
