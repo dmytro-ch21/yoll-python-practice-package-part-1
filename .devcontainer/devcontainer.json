@@ -7,21 +7,14 @@
                 "workbench.editorAssociations": {   
                     "*.md": "vscode.markdown.preview.editor"
                 },
-                "python.linting.enabled": true,
-                "python.linting.pylintEnabled": true,
-                "python.testing.pytestEnabled": true,
-                "python.testing.unittestEnabled": false,
                 "workbench.startupEditor": "none",
                 "codedrills.startup.activateView": true,
                 "codedrills.startup.showExplorer": false
             },
             "extensions": [
-                "ms-python.python",
-                "ms-python.pylint",
-                "ms-python.autopep8",
                 "dmytrochobotar.codedrills"
             ]
         }
     },
-    "onCreateCommand": "pip3 install pytest==8.3.4 pylint==3.0.3 autopep8==2.0.4"
+    "onCreateCommand": "echo 'CodeDrills environment is ready!'"
 }
