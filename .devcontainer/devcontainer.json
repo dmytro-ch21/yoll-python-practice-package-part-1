@@ -2,23 +2,18 @@
   "name": "Python Practice Environment",
   "image": "mcr.microsoft.com/devcontainers/base:alpine",
   "customizations": {
-      "vscode": {
-          "settings": {
-              "workbench.startupEditor": "none",
-              "codedrills.startup.activateView": true,
-              "codedrills.startup.showExplorer": false,
-              "codedrills.publisher": "Dmytro Chobotar",
-              "codedrills.uniqueIdentifier": "dmytrochobotar.codedrills",
-              "codedrills.version": "0.2.0",
-              "python.testing.pytestEnabled": true,
-              "python.testing.unittestEnabled": false,
-              "python.testing.nosetestsEnabled": false
-          },
-          "extensions": [
-              "dmytrochobotar.codedrills",
-              "ms-python.python"
-          ]
-      }
+    "vscode": {
+      "settings": {
+        "workbench.startupEditor": "none",
+        "codedrills.startup.activateView": true,
+        "codedrills.startup.showExplorer": false,
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.testing.nosetestsEnabled": false,
+        "python.defaultInterpreterPath": "/home/vscode/venv/bin/python"
+      },
+      "extensions": ["dmytrochobotar.codedrills"]
+    }
   },
-  "onCreateCommand": "sudo apk add --no-cache python3 py3-pip && sudo pip3 install pytest==8.3.4 && echo 'CodeDrills environment with pytest is ready!'"
+  "onCreateCommand": "sudo apk add --no-cache python3 py3-pip && python3 -m venv ~/venv && . ~/venv/bin/activate && pip install pytest==8.3.4 && echo 'CodeDrills environment with pytest is ready!'"
 }
