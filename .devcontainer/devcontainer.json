@@ -1,20 +1,23 @@
 {
     "name": "Python Practice Environment",
-    "image": "mcr.microsoft.com/devcontainers/python:0-3.10",
+    "image": "mcr.microsoft.com/devcontainers/base:alpine",
     "customizations": {
         "vscode": {
             "settings": {
-                "workbench.editorAssociations": {   
-                    "*.md": "vscode.markdown.preview.editor"
-                },
                 "workbench.startupEditor": "none",
                 "codedrills.startup.activateView": true,
-                "codedrills.startup.showExplorer": false
+                "codedrills.startup.showExplorer": false,
+                "codedrills.publisher": "Dmytro Chobotar",
+                "codedrills.uniqueIdentifier": "dmytrochobotar.codedrills",
+                "codedrills.version": "0.2.0"
             },
             "extensions": [
                 "dmytrochobotar.codedrills"
             ]
         }
     },
-    "onCreateCommand": "echo 'CodeDrills environment is ready!'"
+    "onCreateCommand": "apk add --no-cache python3 && echo 'CodeDrills environment is ready!'",
+    "postAttachCommand": {
+        "activateCodeDrills": "code --install-extension dmytrochobotar.codedrills && code --command codedrills.activateView"
+    }
 }
