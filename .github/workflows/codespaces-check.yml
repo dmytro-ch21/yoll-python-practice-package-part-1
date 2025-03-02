@@ -1,0 +1,23 @@
+name: Validate Codespaces Configuration
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - '.devcontainer/**'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - '.devcontainer/**'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate devcontainer.json
+        uses: devcontainers/validate@v1
+        with:
+          path: .devcontainer/devcontainer.json

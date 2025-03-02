@@ -1,0 +1,55 @@
+{
+    "name": "Python Practice Environment",
+    "image": "mcr.microsoft.com/devcontainers/python:3.13",
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {
+            "installTools": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.pylint",
+                "ms-python.autopep8",
+                "kevinrose.vsc-python-indent",
+                "njpwerner.autodocstring",
+                "dmytrochobotar.codedrills"
+            ],
+            "settings": {
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.provider": "autopep8",
+                "python.testing.pytestEnabled": true,
+                "python.testing.unittestEnabled": false,
+                "python.testing.nosetestsEnabled": false,
+                "editor.formatOnSave": true,
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "codedrills.publisher": "Dmytro Chobotar",
+                "codedrills.uniqueIdentifier": "dmytrochobotar.codedrills",
+                "codedrills.version": "0.2.0"
+            }
+        },
+        "codespaces": {
+            "openFiles": [
+                "README.md"
+            ],
+            "settings": {
+                "workbench.startupEditor": "none",
+                "workbench.welcomePage.walkthroughs.openOnInstall": false
+            }
+        }
+    },
+    "postCreateCommand": "pip install --user -r requirements.txt && chmod +x .devcontainer/activate-codedrills.sh",
+    "waitFor": "postCreateCommand",
+    "postAttachCommand": {
+        "server": "echo 'Environment is ready!'",
+        "onAutoForward": "echo 'Port forwarding established.'",
+        "openCodeDrills": "bash .devcontainer/activate-codedrills.sh"
+    },
+    "hostRequirements": {
+        "memory": "2gb"
+    },
+    "remoteUser": "codespace"
+}
