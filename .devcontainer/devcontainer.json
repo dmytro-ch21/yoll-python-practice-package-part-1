@@ -17,7 +17,5 @@
         }
     },
     "onCreateCommand": "sudo apk add --no-cache python3 && echo 'CodeDrills environment is ready!'",
-    "postAttachCommand": {
-        "activateCodeDrills": "code --install-extension dmytrochobotar.codedrills && code --command codedrills.activateView"
-    }
+    "postStartCommand": "mkdir -p .vscode && echo '{\"codedrills.startup.activateView\": true, \"codedrills.startup.showExplorer\": false, \"workbench.startupEditor\": \"none\"}' > .vscode/settings.json"
 }
