@@ -1,40 +1,27 @@
 {
     "name": "Python Practice Environment",
-    "image": "mcr.microsoft.com/devcontainers/python:3.13",
-    "features": {
-        "ghcr.io/devcontainers/features/python:1": {
-            "installTools": true
-        }
-    },
+    "image": "mcr.microsoft.com/devcontainers/python:0-3.10",
     "customizations": {
         "vscode": {
-            "extensions": [
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "ms-python.pylint",
-                "ms-python.autopep8",
-                "kevinrose.vsc-python-indent",
-                "njpwerner.autodocstring",
-                "dmytrochobotar.codedrills"
-            ],
             "settings": {
+                "workbench.editorAssociations": {   
+                    "*.md": "vscode.markdown.preview.editor"
+                },
                 "python.linting.enabled": true,
                 "python.linting.pylintEnabled": true,
-                "python.formatting.provider": "autopep8",
                 "python.testing.pytestEnabled": true,
                 "python.testing.unittestEnabled": false,
-                "python.testing.nosetestsEnabled": false,
-                "editor.formatOnSave": true,
-                "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "codedrills.publisher": "Dmytro Chobotar",
-                "codedrills.uniqueIdentifier": "dmytrochobotar.codedrills",
-                "codedrills.version": "0.2.0",
                 "workbench.startupEditor": "none",
                 "codedrills.startup.activateView": true,
                 "codedrills.startup.showExplorer": false
-            }
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.pylint",
+                "ms-python.autopep8",
+                "dmytrochobotar.codedrills"
+            ]
         }
     },
-    "postCreateCommand": "pip install -r requirements.txt && echo 'Installation complete!'",
-    "waitFor": "postCreateCommand"
+    "onCreateCommand": "pip3 install pytest==8.3.4 pylint==3.0.3 autopep8==2.0.4"
 }
