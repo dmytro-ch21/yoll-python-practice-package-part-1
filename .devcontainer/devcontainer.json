@@ -1,21 +1,11 @@
 {
-    "name": "Python Practice Environment",
-    "image": "mcr.microsoft.com/devcontainers/base:alpine",
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "workbench.startupEditor": "none",
-                "codedrills.startup.activateView": true,
-                "codedrills.startup.showExplorer": false,
-                "codedrills.publisher": "Dmytro Chobotar",
-                "codedrills.uniqueIdentifier": "dmytrochobotar.codedrills",
-                "codedrills.version": "0.2.0"
-            },
-            "extensions": [
-                "dmytrochobotar.codedrills"
-            ]
-        }
-    },
-    "onCreateCommand": "sudo apk add --no-cache python3 && echo 'CodeDrills environment is ready!'",
-    "postStartCommand": "mkdir -p .vscode && echo '{\"codedrills.startup.activateView\": true, \"codedrills.startup.showExplorer\": false, \"workbench.startupEditor\": \"none\"}' > .vscode/settings.json"
+  "name": "Python Practice Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3-slim",
+  "customizations": {
+      "vscode": {
+          "extensions": [
+              "dmytrochobotar.codedrills"
+          ]
+      }
+  }
 }
